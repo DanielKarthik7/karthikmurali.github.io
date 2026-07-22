@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karthik Murali V M — Senior HR & Business Transformation Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:    #1a3a6b;
+      --navy-dk: #0f2447;
+      --blue:    #2563eb;
+      --blue-lt: #eff6ff;
+      --blue-md: #dbeafe;
+      --gold:    #c97d1a;
+      --gold-lt: #fef3c7;
+      --white:   #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100:#f1f5f9;
+      --gray-200:#e2e8f0;
+      --gray-400:#94a3b8;
+      --gray-500:#64748b;
+      --gray-700:#334155;
+      --gray-900:#0f172a;
+      --font-d:  'Plus Jakarta Sans', sans-serif;
+      --font-b:  'Inter', sans-serif;
+      --font-m:  'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--gray-900); line-height: 1.6; }
+
+    /* ── NAV ─────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 58px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(255,255,255,0.93); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .nav-brand {
+      font-family: var(--font-d); font-weight: 800; font-size: 0.85rem;
+      color: var(--navy); letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em;
+      color: var(--gray-500); text-transform: uppercase; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta {
+      font-size: 0.78rem; font-weight: 600; padding: .35rem .9rem;
+      border: 1.5px solid var(--navy); border-radius: 5px; color: var(--navy);
+      text-decoration: none; transition: all .2s;
+    }
+    .nav-cta:hover { background: var(--navy); color: #fff; }
+
+    /* ── TICKER ──────────────────────────── */
+    .ticker {
+      margin-top: 58px; background: var(--navy);
+      padding: .45rem 0; overflow: hidden; white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-block;
+      animation: tick 50s linear infinite;
+    }
+    .ticker-track span {
+      font-family: var(--font-m); font-size: .68rem; color: rgba(255,255,255,.65);
+      letter-spacing: .04em;
+    }
+    .ticker-track .sep { color: var(--gold); margin: 0 1.2rem; }
+    @keyframes tick { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+
+    /* ── HERO ────────────────────────────── */
+    .hero {
+      min-height: calc(100vh - 58px - 30px);
+      display: grid; grid-template-columns: 1.15fr 1fr;
+      align-items: center; gap: 2rem;
+      padding: 5rem 3.5rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; right: -80px; top: 20%;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(37,99,235,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* — left copy — */
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--blue-lt); color: var(--blue);
+      font-family: var(--font-m); font-size: .68rem; font-weight: 500;
+      padding: .3rem .85rem; border-radius: 20px; margin-bottom: 1.4rem;
+      letter-spacing: .05em; text-transform: uppercase;
+    }
+    .hero-pill .dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; animation: blink 2s ease infinite; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+    .hero-name {
+      font-family: var(--font-d); font-size: clamp(2.6rem,4.5vw,3.9rem);
+      font-weight: 800; line-height: 1.05; color: var(--navy); margin-bottom: .4rem;
+    }
+    .hero-name span { color: var(--blue); }
+
+    .hero-subtitle {
+      font-size: 1rem; font-weight: 500; color: var(--gray-500);
+      margin-bottom: 1.4rem; letter-spacing: .01em;
+    }
+
+    .hero-quote {
+      border-left: 3px solid var(--gold); padding-left: 1rem;
+      font-size: .95rem; color: var(--gray-700); line-height: 1.75;
+      margin-bottom: 2rem; max-width: 480px;
+    }
+
+    /* stats row */
+    .stats-row { display: flex; gap: 0; margin-bottom: 2rem; }
+    .stat-cell {
+      text-align: center; padding: .85rem 1.4rem;
+      border-right: 1px solid var(--gray-200);
+    }
+    .stat-cell:first-child { padding-left: 0; }
+    .stat-cell:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-d); font-size: 1.75rem; font-weight: 800;
+      color: var(--navy); display: block; line-height: 1;
+    }
+    .stat-lbl { font-size: .62rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: .06em; margin-top: .2rem; }
+
+    .hero-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .btn-prim {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--navy); color: #fff; padding: .65rem 1.4rem;
+      border-radius: 7px; text-decoration: none; font-size: .84rem; font-weight: 600;
+      transition: all .2s;
+    }
+    .btn-prim:hover { background: var(--blue); transform: translateY(-1px); }
+    .btn-sec {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 1.5px solid var(--gray-300); color: var(--gray-700); padding: .65rem 1.4rem;
+      border-radius: 7px; text-decoration: none; font-size: .84rem; font-weight: 500;
+      transition: all .2s;
+    }
+    .btn-sec:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* — right visual — */
+    .hero-vis { display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+
+    .orbit-wrap { position: relative; width: 340px; height: 340px; }
+
+    /* center avatar */
+    .av-center {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 130px; height: 130px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-size: 2.4rem; font-weight: 800; color: #fff;
+      box-shadow: 0 0 0 4px #fff, 0 0 0 7px var(--blue-md), 0 12px 40px rgba(37,99,235,.22);
+      z-index: 5;
+    }
+
+    /* orbit rings */
+    .orbit {
+      position: absolute; top: 50%; left: 50%; border-radius: 50%;
+      border: 1.5px dashed var(--blue-md); transform-origin: 0 0;
+    }
+    .orbit-1 { width: 200px; height: 200px; margin: -100px 0 0 -100px; animation: spin1 18s linear infinite; }
+    .orbit-2 { width: 300px; height: 300px; margin: -150px 0 0 -150px; animation: spin2 28s linear infinite; }
+    @keyframes spin1 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes spin2 { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+    /* nodes on orbits */
+    .orbit-node {
+      position: absolute; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--blue-md);
+      box-shadow: 0 2px 10px rgba(37,99,235,.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .6rem; font-weight: 600; color: var(--navy); text-align: center;
+      line-height: 1.2;
+    }
+
+    /* orbit-1 nodes – 4 nodes at 90° each, must counter-rotate */
+    .o1 { width: 48px; height: 48px; }
+    .o1-a { top: -24px; left: 50%; margin-left: -24px; }
+    .o1-b { top: 50%; margin-top: -24px; right: -24px; }
+    .o1-c { bottom: -24px; left: 50%; margin-left: -24px; }
+    .o1-d { top: 50%; margin-top: -24px; left: -24px; }
+    .orbit-1 .orbit-node { animation: counter1 18s linear infinite; }
+    @keyframes counter1 { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+    /* orbit-2 nodes */
+    .o2 { width: 52px; height: 52px; background: var(--blue-lt); }
+    .o2-a { top: -26px; left: 50%; margin-left: -26px; }
+    .o2-b { top: 50%; margin-top: -26px; right: -26px; }
+    .o2-c { bottom: -26px; left: 50%; margin-left: -26px; }
+    .o2-d { top: 50%; margin-top: -26px; left: -26px; }
+    .orbit-2 .orbit-node { animation: counter2 28s linear infinite; }
+    @keyframes counter2 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* specialty tags below visual */
+    .hero-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.5rem; justify-content: center; max-width: 340px; }
+    .htag {
+      font-size: .65rem; font-weight: 600; padding: .25rem .6rem; border-radius: 5px;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .htag-navy { background: var(--navy); color: #fff; }
+    .htag-blue { background: var(--blue-lt); color: var(--blue); }
+    .htag-gold { background: var(--gold-lt); color: var(--gold); }
+
+    /* ── SECTIONS COMMON ─────────────────── */
+    .sec { padding: 5rem 3.5rem; }
+    .sec-alt { background: var(--gray-50); }
+    .sec-label {
+      font-family: var(--font-m); font-size: .68rem; color: var(--blue);
+      letter-spacing: .12em; text-transform: uppercase; margin-bottom: .4rem; display: block;
+    }
+    .sec-label-num { color: var(--gray-400); margin-right: .5rem; }
+    .sec-title {
+      font-family: var(--font-d); font-size: clamp(1.75rem,2.8vw,2.3rem);
+      font-weight: 800; color: var(--navy); line-height: 1.15; margin-bottom: .4rem;
+    }
+    .sec-title em { font-style: italic; color: var(--blue); }
+    .sec-sub { color: var(--gray-500); font-size: .92rem; max-width: 580px; margin-bottom: 2.8rem; }
+
+    /* ── ABOUT ───────────────────────────── */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
+    .about-body { font-size: .93rem; color: var(--gray-700); line-height: 1.8; }
+    .about-body strong { color: var(--navy); }
+    .competency-list { display: flex; flex-direction: column; gap: .6rem; }
+    .comp-item {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .83rem; color: var(--gray-700);
+    }
+    .comp-dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; flex-shrink: 0; }
+
+    /* ── EXPERIENCE TIMELINE ─────────────── */
+    .timeline { position: relative; padding-left: 2.2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 4px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--navy), var(--blue) 60%, transparent);
+    }
+    .tl-item { position: relative; margin-bottom: 2.8rem; }
+    .tl-dot {
+      position: absolute; left: -2.75rem; top: .3rem;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--blue); border: 2px solid #fff;
+      box-shadow: 0 0 0 3px var(--blue-lt);
+    }
+    .tl-dot.cur { background: var(--gold); box-shadow: 0 0 0 3px var(--gold-lt); }
+    .tl-date { font-family: var(--font-m); font-size: .67rem; color: var(--blue); letter-spacing: .05em; margin-bottom: .2rem; }
+    .tl-co { font-family: var(--font-d); font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+    .tl-role { font-size: .88rem; font-weight: 600; color: var(--blue); }
+    .tl-meta {
+      display: flex; gap: 1rem; flex-wrap: wrap; font-size: .72rem;
+      color: var(--gray-500); margin: .25rem 0 .75rem;
+    }
+    .tl-meta span::before { content: '• '; }
+    .tl-pts { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .tl-pts li {
+      font-size: .85rem; color: var(--gray-700); padding-left: 1.1rem; position: relative; line-height: 1.6;
+    }
+    .tl-pts li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-size: .75rem; top: .15rem; }
+
+    /* ── EXPERTISE GRID ──────────────────── */
+    .exp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px,1fr)); gap: .9rem; }
+    .exp-card {
+      background: var(--white); border: 1.5px solid var(--gray-200);
+      border-radius: 12px; padding: 1.2rem 1.1rem; transition: all .2s; cursor: default;
+    }
+    .exp-card:hover { border-color: var(--blue); box-shadow: 0 6px 22px rgba(37,99,235,.1); transform: translateY(-2px); }
+    .exp-icon { font-size: 1.6rem; margin-bottom: .65rem; display: block; }
+    .exp-name { font-family: var(--font-d); font-size: .82rem; font-weight: 700; color: var(--navy); line-height: 1.3; }
+
+    /* ── ACHIEVEMENTS ────────────────────── */
+    .ach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px,1fr)); gap: 1.2rem; }
+    .ach-card {
+      background: var(--white); border: 1.5px solid var(--gray-200);
+      border-radius: 12px; padding: 1.4rem; display: flex; gap: .9rem; align-items: flex-start;
+      transition: all .2s;
+    }
+    .ach-card:hover { border-color: var(--gold); box-shadow: 0 6px 22px rgba(201,125,26,.1); }
+    .ach-ico { font-size: 1.4rem; flex-shrink: 0; margin-top: .05rem; }
+    .ach-txt { font-size: .86rem; color: var(--gray-700); line-height: 1.55; }
+    .ach-txt strong { color: var(--navy); display: block; font-size: .8rem; margin-bottom: .2rem; font-family: var(--font-d); }
+
+    /* ── EDUCATION ───────────────────────── */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .edu-item { border-left: 3px solid var(--navy); padding-left: 1.25rem; margin-bottom: 1.6rem; }
+    .edu-yr { font-family: var(--font-m); font-size: .67rem; color: var(--blue); margin-bottom: .15rem; }
+    .edu-deg { font-family: var(--font-d); font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.3; }
+    .edu-spec { font-size: .8rem; color: var(--blue); margin: .1rem 0; }
+    .edu-inst { font-size: .8rem; color: var(--gray-500); }
+
+    .cert-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+    .cert-list li { display: flex; align-items: center; gap: .6rem; font-size: .85rem; color: var(--gray-700); }
+    .cert-list li::before { content: '✦'; color: var(--gold); font-size: .65rem; }
+
+    /* ── TOOLS ───────────────────────────── */
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 1.2rem; }
+    .tool-cat {
+      background: var(--white); border: 1.5px solid var(--gray-200);
+      border-radius: 12px; padding: 1.4rem;
+    }
+    .tool-cat-lbl {
+      font-family: var(--font-m); font-size: .67rem; font-weight: 500; color: var(--gray-400);
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: .8rem;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .ttag {
+      background: var(--gray-100); color: var(--gray-700);
+      font-size: .74rem; font-weight: 500; padding: .25rem .65rem; border-radius: 6px;
+    }
+    .ttag.blue { background: var(--blue-lt); color: var(--blue); }
+    .ttag.gold { background: var(--gold-lt); color: var(--gold); }
+    .ttag.navy { background: var(--navy); color: #fff; }
+
+    /* ── FOOTER ──────────────────────────── */
+    footer {
+      background: var(--navy-dk); color: #fff;
+      padding: 5rem 3.5rem 3rem; text-align: center;
+    }
+    footer .f-eyebrow {
+      font-family: var(--font-m); font-size: .67rem; color: rgba(255,255,255,.4);
+      letter-spacing: .12em; text-transform: uppercase; margin-bottom: .75rem;
+    }
+    footer h2 {
+      font-family: var(--font-d); font-size: 2.1rem; font-weight: 800;
+      margin-bottom: .4rem; line-height: 1.15;
+    }
+    footer .f-sub { color: rgba(255,255,255,.55); font-size: .92rem; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .f-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .f-link {
+      color: rgba(255,255,255,.65); text-decoration: none; font-size: .84rem;
+      display: flex; align-items: center; gap: .4rem; transition: color .2s;
+    }
+    .f-link:hover { color: #fff; }
+    .f-divider { border: none; border-top: 1px solid rgba(255,255,255,.1); margin: 2rem 0; }
+    .f-motto {
+      font-family: var(--font-d); font-size: .8rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3);
+    }
+    .f-motto strong { color: var(--gold); }
+
+    /* ── FADE-IN ANIMATION ───────────────── */
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .fade-in.vis { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ──────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 4rem 1.75rem 3rem; }
+      .hero-vis { display: none; }
+      .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .sec { padding: 3.5rem 1.75rem; }
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      footer { padding: 3.5rem 1.75rem 2.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track, .orbit-1, .orbit-2, .orbit-node { animation: none; }
+      .fade-in { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ─────────────────────── -->
+  <nav>
+    <div class="nav-brand">Karthik Murali V M</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="mailto:muralikarthikmba@gmail.com" style="color:var(--blue);">Contact ↗</a></li>
+    </ul>
+    <a href="mailto:muralikarthikmba@gmail.com" class="nav-cta">Hire Me</a>
+  </nav>
+
+  <!-- ── TICKER ───────────────────── -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>PEOPLE_OPS :: HIRE → DEVELOP → RETAIN</span>
+      <span class="sep">|</span>
+      <span>AI_HR_AUTOMATION :: 20+ MODULES DEPLOYED ACROSS LIFECYCLE</span>
+      <span class="sep">|</span>
+      <span>WORKFORCE: 15,000+ EMPLOYEES LED ACROSS INDIA &amp; UAE</span>
+      <span class="sep">|</span>
+      <span>COMPLIANCE_STATUS: ZERO_DEFAULTS :: 2 CONSECUTIVE YEARS</span>
+      <span class="sep">|</span>
+      <span>SUCCESSION_PLAN: 150+ CRITICAL LEADERSHIP ROLES DESIGNED</span>
+      <span class="sep">|</span>
+      <span>CULTURE_TRANSFORMATION: LEGACY → HIGH_PERFORMANCE</span>
+      <span class="sep">|</span>
+      <span>BENEFITS_PORTFOLIO: ₹10 CR :: HEALTH • INSURANCE • WELLNESS</span>
+      <span class="sep">|</span>
+      <span>INDUSTRIES: IT/ITeS • MANUFACTURING • RETAIL • BIOTECH • EPC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ── HERO ─────────────────────── -->
+  <section class="hero" id="about">
+    <!-- left copy -->
+    <div class="hero-text">
+      <div class="hero-pill">
+        <span class="dot"></span> Open to Senior Leadership Opportunities
+      </div>
+      <h1 class="hero-name">Karthik<br><span>Murali V M</span></h1>
+      <p class="hero-subtitle">Senior HR &amp; Business Transformation Leader</p>
+      <p class="hero-quote">
+        I partner with founders and leadership teams to build future-ready organizations where <em>strategy, people and AI</em> operate as one high-performance system.
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-cell">
+          <span class="stat-num">15+</span>
+          <div class="stat-lbl">Years<br>Experience</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num">15K+</span>
+          <div class="stat-lbl">Employees<br>Led</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num">20+</span>
+          <div class="stat-lbl">Automation<br>Modules</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num">5</span>
+          <div class="stat-lbl">Industries<br>Served</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num">₹10Cr</span>
+          <div class="stat-lbl">Benefits<br>Portfolio</div>
+        </div>
+      </div>
+
+      <div class="hero-btns">
+        <a href="mailto:muralikarthikmba@gmail.com" class="btn-prim">✉ Get in Touch</a>
+        <a href="https://linkedin.com/in/karthikmurali-vm" target="_blank" class="btn-sec">↗ LinkedIn</a>
+        <a href="tel:+919108212677" class="btn-sec">📞 +91 91082 12677</a>
+      </div>
+    </div>
+
+    <!-- right visual: orbit -->
+    <div class="hero-vis">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1.2rem;">
+        <div class="orbit-wrap">
+          <!-- Center -->
+          <div class="av-center">KM</div>
+
+          <!-- Inner orbit ring + 4 nodes -->
+          <div class="orbit orbit-1">
+            <div class="orbit-node o1 o1-a">HR<br>Strategy</div>
+            <div class="orbit-node o1 o1-b">Org<br>Design</div>
+            <div class="orbit-node o1 o1-c">Talent<br>Mgmt</div>
+            <div class="orbit-node o1 o1-d">HRBP</div>
+          </div>
+
+          <!-- Outer orbit ring + 4 nodes -->
+          <div class="orbit orbit-2">
+            <div class="orbit-node o2 o2-a">AI &amp;<br>Automation</div>
+            <div class="orbit-node o2 o2-b">Change<br>Mgmt</div>
+            <div class="orbit-node o2 o2-c">Compliance<br>&amp; Risk</div>
+            <div class="orbit-node o2 o2-d">Perf<br>Mgmt</div>
+          </div>
+        </div>
+
+        <!-- specialty tags -->
+        <div class="hero-tags">
+          <span class="htag htag-navy">Bangalore, India</span>
+          <span class="htag htag-blue">IT/ITeS</span>
+          <span class="htag htag-blue">Manufacturing</span>
+          <span class="htag htag-blue">Biotech</span>
+          <span class="htag htag-gold">15 Yrs Leadership</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 01 EXECUTIVE SUMMARY ────── -->
+  <section class="sec sec-alt fade-in" id="summary">
+    <span class="sec-label"><span class="sec-label-num">01</span>Professional Background</span>
+    <h2 class="sec-title">Executive <em>Summary</em></h2>
+    <p class="sec-sub">A 360° view of what I bring to every leadership table.</p>
+
+    <div class="about-grid">
+      <div class="about-body">
+        <p><strong>Strategic HR leader</strong> with 15+ years of experience operating effectively in agile, fast-paced matrixed organizations across IT/ITeS, Manufacturing, Retail, Biotechnology and MedTech sectors.</p>
+        <br>
+        <p>Proven ability partnering with CXOs, CEOs, Board and Leadership teams to handle portfolios spanning HR Business Partnering, Organization Development, Talent Management, Payroll, Workforce &amp; Succession Planning, Employee Relations, HR Technology &amp; Automation, and Compliance for workforces of up to <strong>15,000+</strong>.</p>
+        <br>
+        <p>Recognized for <strong>modernizing legacy organizations</strong>, building high-performance cultures, leading AI-enabled HR transformation, and aligning people strategy to measurable business growth.</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-d);font-size:.78rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.9rem;">Core Competencies</p>
+        <div class="competency-list">
+          <div class="comp-item"><span class="comp-dot"></span>Enterprise HR Strategy &amp; Operating Models</div>
+          <div class="comp-item"><span class="comp-dot"></span>Organization Development &amp; Change Management</div>
+          <div class="comp-item"><span class="comp-dot"></span>Talent Management, Workforce &amp; Succession Planning</div>
+          <div class="comp-item"><span class="comp-dot"></span>HRBP &amp; CXO / Leadership Partnering</div>
+          <div class="comp-item"><span class="comp-dot"></span>CXO Hiring, Leadership Development &amp; Coaching</div>
+          <div class="comp-item"><span class="comp-dot"></span>M&amp;A HR Integration &amp; Rebadging</div>
+          <div class="comp-item"><span class="comp-dot"></span>HR Technology, HRMS &amp; Automation</div>
+          <div class="comp-item"><span class="comp-dot"></span>AI-Enabled People Operations &amp; HR Analytics</div>
+          <div class="comp-item"><span class="comp-dot"></span>Performance Management &amp; Career Architecture</div>
+          <div class="comp-item"><span class="comp-dot"></span>Employee Relations, POSH &amp; Grievance Redressal</div>
+          <div class="comp-item"><span class="comp-dot"></span>Statutory Compliance, HR Audits &amp; Risk, Payroll</div>
+          <div class="comp-item"><span class="comp-dot"></span>Employee Engagement, Wellbeing &amp; Retention</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 02 EXPERIENCE ───────────── -->
+  <section class="sec fade-in" id="experience">
+    <span class="sec-label"><span class="sec-label-num">02</span>Professional Experience</span>
+    <h2 class="sec-title">Career <em>Journey</em></h2>
+    <p class="sec-sub">15+ years across 5 industries, 7 organizations, and workforces from 500 to 15,000+.</p>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot cur"></div>
+        <div class="tl-date">Oct 2025 – May 2026</div>
+        <div class="tl-co">Odyssey Therapeia | Regency Lifesciences Group</div>
+        <div class="tl-role">Chief Executive &amp; HR Consultant</div>
+        <div class="tl-meta">
+          <span>Bangalore, India</span><span>Biotech / MedTech</span>
+        </div>
+        <ul class="tl-pts">
+          <li>Led end-to-end HR Strategy &amp; business-operations transformation for a biotech group: org design, change management and OD interventions moving traditional operations to technology-led models.</li>
+          <li>Designed and deployed a custom in-house ERP integrating five departments, eliminating manual interventions by 80%, driving productivity, speed of operations, and quality across functions.</li>
+          <li>Standardized SOPs; instituted MBR/QBR governance for Sales Heads performance tracking; implemented PMS driving productivity and revenue outcomes.</li>
+          <li>Led development of AI-enabled solutions for predictive analytics, and EMR product for clinic/hospital lifecycle operations; contributed to patenting of AI-powered cancer detection device.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Jan 2025 – Sep 2025</div>
+        <div class="tl-co">Sea Breeze Electro Mechanical Equipment LLC (OPC)</div>
+        <div class="tl-role">Head – Human Resources</div>
+        <div class="tl-meta">
+          <span>Dubai, UAE</span><span>Manufacturing / EPC</span>
+        </div>
+        <ul class="tl-pts">
+          <li>Led HR Strategy and business-process digital transformation for a 15-year-old legacy manufacturing organization, ensuring UAE Labour law compliance.</li>
+          <li>Implemented Zoho CRM &amp; HCM platform; embedded TQM practices (Zero Defects, Right First Time) improving plant productivity and quality outcomes.</li>
+          <li>Partnered on ISO certifications, audit protocols and ADNOC registration; audited 5 years of financial data (Invoices, PO, P&amp;L, Balance Sheet) in liaison with external auditors.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">May 2023 – Dec 2024</div>
+        <div class="tl-co">Justdial Ltd.</div>
+        <div class="tl-role">AGM – Talent Operations &amp; HR Automation</div>
+        <div class="tl-meta">
+          <span>Pan-India</span><span>E-Commerce / Tech</span><span>15,000+ Employees</span><span>Team: 100</span>
+        </div>
+        <ul class="tl-pts">
+          <li>Directed hire-to-retire HR operations for 15,000+ employees spanning recruitment, lifecycle, payroll, compliance, ER and governance.</li>
+          <li>Automated 20+ HR modules improving productivity, data accuracy, TAT and people analytics — equivalent to 10 FTE hours in cost savings.</li>
+          <li>Managed 100+ complex ER cases annually including Labour court cases, whistleblower complaints, POSH, and disciplinary matters.</li>
+          <li>Handled ₹10 Cr employee benefits portfolio covering health insurance, car lease and wellness programs. Delivered zero-defect audits for two consecutive years across 12 branches.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">May 2020 – Apr 2023</div>
+        <div class="tl-co">Jindal Aluminium Ltd.</div>
+        <div class="tl-role">Manager – Organization Development</div>
+        <div class="tl-meta">
+          <span>Bangalore</span><span>Manufacturing</span><span>3,000 Employees</span>
+        </div>
+        <ul class="tl-pts">
+          <li>Transformed a 50-year legacy manufacturing organization into a modern, performance-led culture; built integrated HR framework across TA, OD, L&amp;D and Operations.</li>
+          <li>Designed &amp; executed succession plans for 150+ critical roles; hired C-suite (CHRO, CFO, CTO) and built leadership pipelines across verticals.</li>
+          <li>Implemented HRMS (3,000 employees onboarded, 500+ leaders trained) and introduced 50+ policies with structured governance.</li>
+          <li>Led HR integration during the Indo Alusys M&amp;A acquisition, driving the unit to profitability within a year.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Aug 2016 – Apr 2020</div>
+        <div class="tl-co">Justdial Ltd.</div>
+        <div class="tl-role">Manager – Corporate HR &amp; Organization Development</div>
+        <div class="tl-meta">
+          <span>Bangalore</span><span>E-Commerce / Tech</span><span>10,000+ Employees</span><span>12 Business Units</span>
+        </div>
+        <ul class="tl-pts">
+          <li>Established enterprise-wide HR policies, processes and systems for 10,000+ employees across 12 business units.</li>
+          <li>Co-developed 15+ HR automation modules (recruitment, PMS, payroll, chatbot) impacting 10,000+ users.</li>
+          <li>Built CXO-level talent dashboards; directed talent strategies and PMS activities for the entire workforce.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Nov 2015 – Jun 2016</div>
+        <div class="tl-co">XL Catlin</div>
+        <div class="tl-role">Assistant Manager HR</div>
+        <div class="tl-meta">
+          <span>Bangalore</span><span>Insurance / Re-Insurance</span><span>500+ Employees</span>
+        </div>
+        <ul class="tl-pts">
+          <li>Led HRBP operations; scaled headcount 5× (100 → 450) in four months through full-cycle recruitment.</li>
+          <li>Coached line managers on performance management, feedback and PIP; drove engagement and R&amp;R programs.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Aug 2008 – Oct 2015</div>
+        <div class="tl-co">Infosys Limited</div>
+        <div class="tl-role">Associate Lead HR – Business Partner</div>
+        <div class="tl-meta">
+          <span>Bangalore</span><span>IT / ITeS</span><span>2,000+ Employees</span><span>Telecom, Manufacturing &amp; BFSI Verticals</span>
+        </div>
+        <ul class="tl-pts">
+          <li>Managed HRBP activities for 2,000+ employees across 3 verticals Pan-India; partnered with CXOs to translate business vision into people goals.</li>
+          <li>Reduced attrition from 34% to 10% through targeted retention initiatives, leadership development, and engagement programs.</li>
+          <li>Led end-to-end performance management: goal-setting, KRA/KPI design, appraisal cycles and bell-curve normalization for 2,000+ employees.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 03 EXPERTISE GRID ─────────── -->
+  <section class="sec sec-alt fade-in" id="expertise">
+    <span class="sec-label"><span class="sec-label-num">03</span>Leadership Expertise</span>
+    <h2 class="sec-title">Areas of <em>Mastery</em></h2>
+    <p class="sec-sub">A decade-and-a-half of building depth across every dimension of modern HR leadership.</p>
+
+    <div class="exp-grid">
+      <div class="exp-card">
+        <span class="exp-icon">🏛️</span>
+        <div class="exp-name">HR Strategy &amp; Operating Models</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🌐</span>
+        <div class="exp-name">Organization Design &amp; Development</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🤖</span>
+        <div class="exp-name">HR Transformation &amp; Automation</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">💻</span>
+        <div class="exp-name">HR Technology &amp; HRMS</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🌱</span>
+        <div class="exp-name">Talent Management &amp; Succession</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🤝</span>
+        <div class="exp-name">HRBP &amp; CXO Partnering</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">📊</span>
+        <div class="exp-name">Performance Management</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">⚖️</span>
+        <div class="exp-name">Employee Relations &amp; POSH</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🔒</span>
+        <div class="exp-name">Compliance, Audits &amp; Risk</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🔄</span>
+        <div class="exp-name">Change Management &amp; Culture</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">📈</span>
+        <div class="exp-name">AI-Enabled People Analytics</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🔗</span>
+        <div class="exp-name">M&amp;A HR Integration &amp; Rebadging</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 ACHIEVEMENTS ────────────── -->
+  <section class="sec fade-in" id="achievements">
+    <span class="sec-label"><span class="sec-label-num">04</span>Selected Achievements</span>
+    <h2 class="sec-title">Impact <em>Delivered</em></h2>
+    <p class="sec-sub">Outcomes that outlast the org charts.</p>
+
+    <div class="ach-grid">
+      <div class="ach-card">
+        <div class="ach-ico">🏭</div>
+        <div class="ach-txt">
+          <strong>Legacy → High-Performance</strong>
+          Transformed a 50-year-old manufacturing workforce through OD, cultural change and HR-technology adoption at Jindal Aluminium.
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico">🤖</div>
+        <div class="ach-txt">
+          <strong>AI-Powered HR Automation</strong>
+          Built and deployed 20+ custom HR automation modules across the employee lifecycle, lifting efficiency, compliance and data accuracy — saving 10 FTE-equivalent hours.
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico">👥</div>
+        <div class="ach-txt">
+          <strong>Enterprise-Scale HR Operations</strong>
+          Led HR operations and transformation for 15,000+ employees across multiple industries and geographies.
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico">✅</div>
+        <div class="ach-txt">
+          <strong>Zero-Defaults Audit Track Record</strong>
+          Conducted audits across 25+ key processes with zero defaults for two consecutive years through structured process adherences and technology leverage.
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico">🎯</div>
+        <div class="ach-txt">
+          <strong>Succession Planning at Scale</strong>
+          Designed succession plans for 150+ critical leadership roles across functions and geographies; hired C-suite including CHRO, CFO and CTO.
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico">💊</div>
+        <div class="ach-txt">
+          <strong>₹10 Cr Employee Wellness Portfolio</strong>
+          Owned and managed ₹10 Cr employee wellness budget covering health, insurance, R&amp;R and mental wellbeing initiatives.
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico">📜</div>
+        <div class="ach-txt">
+          <strong>Policy Governance at Enterprise Scale</strong>
+          Authored 50+ HR policies including POSH, performance and statutory compliance; implemented governance councils and bi-annual policy reviews.
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico">🔁</div>
+        <div class="ach-txt">
+          <strong>M&amp;A HR Integration</strong>
+          Led HR integration in the Indo Alusys acquisition, managing rebadging, re-training, HRMS integration and succession — driving the acquired unit to profitability within a year.
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico">📉</div>
+        <div class="ach-txt">
+          <strong>Attrition Reduction: 34% → 10%</strong>
+          Designed and executed targeted retention and engagement strategies at Infosys that reduced attrition from 34% to 10% across 2,000+ employee base.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 EDUCATION ───────────────── -->
+  <section class="sec sec-alt fade-in" id="education">
+    <span class="sec-label"><span class="sec-label-num">05</span>Education &amp; Credentials</span>
+    <h2 class="sec-title">Academic Background &amp; <em>Certifications</em></h2>
+    <p class="sec-sub">Strong theoretical foundations complemented by applied executive credentials.</p>
+
+    <div class="edu-grid">
+      <div>
+        <p style="font-family:var(--font-d);font-size:.78rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.07em;margin-bottom:1.2rem;">Degrees</p>
+
+        <div class="edu-item">
+          <div class="edu-yr">MBA (Full-time)</div>
+          <div class="edu-deg">Business Administration</div>
+          <div class="edu-spec">Specialization: HR &amp; Marketing</div>
+          <div class="edu-inst">Anna University, Chennai</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-yr">BBA (Full-time)</div>
+          <div class="edu-deg">Business Administration</div>
+          <div class="edu-spec">Specialization: OB &amp; HCM</div>
+          <div class="edu-inst">Thiruvalluvar University</div>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-family:var(--font-d);font-size:.78rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.07em;margin-bottom:1.2rem;">Certifications</p>
+        <ul class="cert-list">
+          <li>Lean Six Sigma</li>
+          <li>POSH Certification</li>
+          <li>Design Thinking</li>
+          <li>Digital Transformation &amp; Change Management</li>
+          <li>AI-Enabled HR</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 06 TOOLS ───────────────────── -->
+  <section class="sec fade-in" id="tools">
+    <span class="sec-label"><span class="sec-label-num">06</span>Tools &amp; Capabilities</span>
+    <h2 class="sec-title">Tech Stack &amp; <em>Capabilities</em></h2>
+    <p class="sec-sub">From legacy HRMS to frontier AI tools — hands-on experience across the modern HR technology landscape.</p>
+
+    <div class="tools-grid">
+      <div class="tool-cat">
+        <div class="tool-cat-lbl">🗂 HR Systems &amp; HRMS</div>
+        <div class="tag-row">
+          <span class="ttag navy">Darwinbox</span>
+          <span class="ttag navy">ZingHR</span>
+          <span class="ttag navy">MyHR (Oracle)</span>
+          <span class="ttag">PeopleStrong</span>
+          <span class="ttag">Keka HR</span>
+          <span class="ttag">Zoho HCM</span>
+          <span class="ttag">Zoho CRM/ERP</span>
+          <span class="ttag">HR Tech</span>
+        </div>
+      </div>
+
+      <div class="tool-cat">
+        <div class="tool-cat-lbl">🤖 AI &amp; Productivity</div>
+        <div class="tag-row">
+          <span class="ttag blue">Claude</span>
+          <span class="ttag blue">ChatGPT</span>
+          <span class="ttag blue">Gemini</span>
+          <span class="ttag blue">Antigravity</span>
+          <span class="ttag blue">Cursor</span>
+          <span class="ttag blue">Codex</span>
+          <span class="ttag blue">Perplexity</span>
+        </div>
+      </div>
+
+      <div class="tool-cat">
+        <div class="tool-cat-lbl">⚡ Core Capabilities</div>
+        <div class="tag-row">
+          <span class="ttag gold">Executive Leadership</span>
+          <span class="ttag gold">Operational Excellence</span>
+          <span class="ttag gold">Change Management</span>
+          <span class="ttag gold">Business Acumen</span>
+          <span class="ttag gold">Problem Solving</span>
+        </div>
+      </div>
+
+      <div class="tool-cat">
+        <div class="tool-cat-lbl">📊 HR Operations Skills</div>
+        <div class="tag-row">
+          <span class="ttag">HR Analytics</span>
+          <span class="ttag">Dashboard Mgmt</span>
+          <span class="ttag">HRMS Integration</span>
+          <span class="ttag">Centre of Excellence</span>
+          <span class="ttag">Cross-functional Collaboration</span>
+          <span class="ttag">Stakeholder Management</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────── -->
+  <footer id="contact">
+    <div class="f-eyebrow">Get in touch</div>
+    <h2>Let's build something remarkable.</h2>
+    <p class="f-sub">Open to CHRO, VP-HR, Head of HR, and senior HR leadership mandates across India and globally. Ready to transform your people strategy.</p>
+
+    <div class="f-links">
+      <a href="mailto:muralikarthikmba@gmail.com" class="f-link">✉ muralikarthikmba@gmail.com</a>
+      <a href="https://linkedin.com/in/karthikmurali-vm" target="_blank" class="f-link">in LinkedIn</a>
+      <a href="tel:+919108212677" class="f-link">📞 +91 91082 12677</a>
+      <a href="tel:+918147397754" class="f-link">📞 +91 81473 97754</a>
+    </div>
+
+    <hr class="f-divider" />
+    <div class="f-motto">
+      <strong>Strategic Thinker.</strong> People Champion. <strong>Transformation Catalyst.</strong>
+    </div>
+    <p style="color:rgba(255,255,255,.25);font-size:.72rem;margin-top:1rem;">Bangalore, India &nbsp;·&nbsp; © 2026 Karthik Murali V M</p>
+  </footer>
+
+  <script>
+    // ── Intersection observer for fade-in ──
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    faders.forEach(el => observer.observe(el));
+
+    // ── Active nav link highlight on scroll ──
+    const sections = document.querySelectorAll('section[id], footer[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 90) cur = s.id; });
+      navAnchors.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${cur}` ? 'var(--blue)' : '';
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>
