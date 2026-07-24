@@ -351,14 +351,58 @@
     .fade-in.vis { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ──────────────────────── */
+    /* ── HAMBURGER ───────────────────── */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: .3rem; margin-left: .5rem;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--navy); border-radius: 2px; transition: all .25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding: 4rem 1.75rem 3rem; }
-      .hero-vis { display: none; }
-      .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .sec { padding: 3.5rem 1.75rem; }
       nav { padding: 0 1.25rem; }
-      .nav-links { display: none; }
-      footer { padding: 3.5rem 1.75rem 2.5rem; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 58px; left: 0; right: 0;
+        background: rgba(255,255,255,.97); backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--gray-200);
+        flex-direction: column; gap: 0; list-style: none;
+        box-shadow: 0 8px 24px rgba(0,0,0,.08); z-index: 199;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid var(--gray-100); }
+      .nav-links a { display: block; padding: .85rem 1.5rem; font-size: .85rem; }
+      .hero { grid-template-columns: 1fr; padding: 4rem 1.25rem 3rem; }
+      .hero-vis { display: none; }
+      .hero-name { font-size: 2.4rem; }
+      .stats-row { flex-wrap: wrap; gap: .5rem; }
+      .stat-cell {
+        flex: 1 1 calc(33% - .5rem); min-width: 80px;
+        border-right: none; border-bottom: 1px solid var(--gray-200);
+        padding: .65rem .5rem;
+      }
+      .stat-num { font-size: 1.4rem; }
+      .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .ach-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .exp-grid { grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); }
+      .timeline { padding-left: 1.5rem; }
+      .tl-dot { left: -2.1rem; }
+      .sec { padding: 3rem 1.25rem; }
+      footer { padding: 3rem 1.25rem 2.5rem; }
+      footer h2 { font-size: 1.6rem; }
+      .f-links { gap: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; }
+      .btn-prim, .btn-sec { justify-content: center; }
+      .stat-cell { flex: 1 1 calc(50% - .5rem); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -372,7 +416,7 @@
   <!-- ── NAV ─────────────────────── -->
   <nav>
     <div class="nav-brand">Karthik Murali V M</div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#expertise">Expertise</a></li>
@@ -381,7 +425,12 @@
       <li><a href="#tools">Tools</a></li>
       <li><a href="mailto:muralikarthikmba@gmail.com" style="color:var(--blue);">Contact ↗</a></li>
     </ul>
-    <a href="mailto:muralikarthikmba@gmail.com" class="nav-cta">Hire Me</a>
+    <div style="display:flex;align-items:center;gap:.5rem;">
+      <a href="mailto:muralikarthikmba@gmail.com" class="nav-cta">Hire Me</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- ── TICKER ───────────────────── -->
@@ -885,6 +934,22 @@
   </footer>
 
   <script>
+    // ── Hamburger menu toggle ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
     // ── Intersection observer for fade-in ──
     const faders = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
